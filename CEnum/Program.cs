@@ -1,11 +1,17 @@
 
 
 
+using System.Runtime.CompilerServices;
+
+
+
 public class CEnum<T>
 {
 	public readonly T Value;
 	
 	protected CEnum(T v){ Value = v; }
+	
+	public static implicit operator T(CEnum<T> This) => This.Value;//Deprecated : Reading "Value" directly is faster.
 }
 
 public class CEnum : CEnum<int>
@@ -59,6 +65,9 @@ namespace Program
 					Log($"{v0}.{v0.Value}");
 					Log($"{v1}.{v1.Value}");
 					Log($"{v2}.{v2.Value}");
+					Log($"{v0}.{(int)v0}");
+					Log($"{v1}.{(int)v1}");
+					Log($"{v2}.{(int)v2}");
 				}
 				Log($"\n");
 			}
