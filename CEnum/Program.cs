@@ -1,10 +1,6 @@
 
 
 
-using System.Runtime.CompilerServices;
-
-
-
 public class CEnum<T>
 {
 	public readonly T Value;
